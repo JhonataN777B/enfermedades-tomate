@@ -1,0 +1,7 @@
+# Conjuntos de datos y artefactos generados localmente
+raw/
+interim/
+processed/
+*.zip
+*.csv
+*.parquet

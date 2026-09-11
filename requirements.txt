@@ -1,0 +1,9 @@
+# Dependencias base. Fijar versiones cuando se defina el entorno de entrenamiento.
+numpy
+pandas
+Pillow
+matplotlib
+scikit-learn
+torch
+torchvision
+jupyter

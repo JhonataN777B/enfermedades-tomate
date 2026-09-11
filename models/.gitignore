@@ -1,0 +1,7 @@
+# Pesos y exportaciones de modelos: versionar solo si tamaño y licencia lo permiten.
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.keras
