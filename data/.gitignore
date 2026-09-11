@@ -2,6 +2,9 @@
 raw/
 interim/
 processed/
+Dataset/
+dataset_tomato/
+dataset_descargado.zip
 *.zip
 *.csv
 *.parquet

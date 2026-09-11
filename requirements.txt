@@ -1,9 +1,11 @@
-# Dependencias base. Fijar versiones cuando se defina el entorno de entrenamiento.
+# Dependencias requeridas por el notebook actual. Fijar versiones al cerrar el entorno de entrenamiento.
+gdown
 numpy
 pandas
 Pillow
 matplotlib
+seaborn
 scikit-learn
-torch
-torchvision
+scikit-image
+opencv-python
 jupyter

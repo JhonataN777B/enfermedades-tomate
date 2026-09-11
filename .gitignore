@@ -5,6 +5,10 @@ __pycache__/
 .ipynb_checkpoints/
 .pytest_cache/
 
+# Descargas realizadas por el notebook
+/dataset_tomato/
+/dataset_descargado.zip
+
 # Configuración local y archivos del sistema
 .env
 .DS_Store
