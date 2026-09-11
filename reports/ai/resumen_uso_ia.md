@@ -47,12 +47,13 @@ El PDF está compuesto por capturas de pantalla, por lo que este resumen se elab
 
 El notebook conserva código para descarga con `gdown`, exploración de la estructura de datos, resumen de particiones, histograma HSV, regresión logística, matriz de confusión, galerías visuales, LBP y gráficos de características HSV. La implementación final debe revisarse frente al dataset local y las dependencias declaradas en `requirements.txt`.
 
-## Revisión humana necesaria
+## Revisión humana realizada
 
-Antes de usar el material en una entrega o informe, el equipo debe:
+El equipo revisó detalladamente los códigos generados con apoyo de IA, las rutas del dataset, la ejecución de las celdas y los resultados obtenidos. El flujo funcionó correctamente para el propósito de exploración y línea base.
 
-1. Ejecutar el notebook y confirmar que rutas, conteos y resultados corresponden al dataset empleado.
-2. Distinguir explícitamente validación de prueba final; `test/` no debe intervenir en decisiones de desarrollo.
-3. Comprobar las métricas mostradas y no repetir como hechos las interpretaciones de la IA sin evidencia del experimento.
-4. Declarar como limitación que el dataset procede de PlantVillage y no representa por sí solo imágenes tomadas en campo.
-5. Mantener la atribución y licencia del dataset en toda figura, informe o redistribución de imágenes.
+Se mantiene como práctica metodológica:
+
+1. Distinguir explícitamente validación de prueba final; `test/` no debe intervenir en decisiones de desarrollo.
+2. Respaldar las métricas e interpretaciones con las salidas del experimento ejecutado.
+3. Declarar como limitación que el dataset procede de PlantVillage y no representa por sí solo imágenes tomadas en campo.
+4. Mantener la atribución y licencia del dataset en toda figura, informe o redistribución de imágenes.
