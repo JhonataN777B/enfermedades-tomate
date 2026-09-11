@@ -1,12 +1,23 @@
-# Línea base: HSV + regresión logística
+# Línea base clásica: HSV + regresión logística
 
-El notebook inicial implementa una referencia clásica para clasificación multiclase:
+## Propósito
 
-1. Convierte cada imagen a HSV.
-2. Calcula un histograma tridimensional normalizado de 8 × 8 × 8 bins.
-3. Entrena una regresión logística sobre `train/`.
-4. Reporta métricas y una matriz de confusión durante la exploración.
+La línea base comprueba carga de imágenes, etiquetas y métricas antes de usar redes neuronales y permite comparar modelos posteriores.
 
-Para resultados comparables, conserva `test/` para la evaluación final. La sección exploratoria actual del notebook carga `val/` como conjunto de evaluación; no debe presentarse como resultado final de prueba.
+## Método implementado
 
-Las figuras generadas deben exportarse a esta carpeta con un nombre descriptivo y anotarse con fecha, versión del notebook y versión del dataset.
+1. Leer imágenes `.jpg`, `.jpeg` o `.png` por clase.
+2. Convertir BGR a HSV con OpenCV.
+3. Calcular un histograma HSV normalizado de 8 × 8 × 8 bins.
+4. Entrenar `LogisticRegression(max_iter=1000, random_state=42, n_jobs=-1)` con `train/`.
+5. Generar reporte de clasificación y matriz de confusión en `val/` para exploración.
+
+`src/features.py` contiene las funciones de carga y extracción HSV. El notebook también incorpora galerías, análisis de fondos/iluminación y LBP como descriptor exploratorio de textura.
+
+| Etapa | Partición permitida |
+| --- | --- |
+| Ajuste | `train/` |
+| Selección de enfoque/hiperparámetros | `val/` |
+| Informe final único | `test/` |
+
+El notebook entrega métricas de validación. Para el informe final, fijar el modelo antes de cargar `test/` y guardar métricas, matriz de confusión, fecha, dependencias y versión de datos.

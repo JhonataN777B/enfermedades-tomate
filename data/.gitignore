@@ -5,6 +5,6 @@ processed/
 Dataset/
 dataset_tomato/
 dataset_descargado.zip
+*.tar
+*.tar.gz
 *.zip
-*.csv
-*.parquet

@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from zipfile import ZipFile
+import argparse
 
 
 DATASET_FILE_ID = "1iR-_h-xHfI5F_m3J98sSu0jXPJtbExVx"
@@ -36,3 +37,30 @@ def find_dataset_root(path: str | Path) -> Path:
     raise FileNotFoundError(
         f"No se encontró Dataset con las particiones {SPLITS} bajo: {path}"
     )
+
+
+def main() -> None:
+    """Expone la descarga del dataset como comando de módulo."""
+    parser = argparse.ArgumentParser(
+        description="Descarga y valida el dataset de enfermedades en hojas de tomate."
+    )
+    parser.add_argument(
+        "--download",
+        action="store_true",
+        help="descarga y descomprime el ZIP público de Google Drive",
+    )
+    parser.add_argument(
+        "--destination",
+        default="data/raw",
+        help="carpeta local de descarga (por defecto: data/raw)",
+    )
+    args = parser.parse_args()
+    if not args.download:
+        parser.error("usa --download para obtener el dataset")
+
+    dataset_root = download_dataset(args.destination)
+    print(f"Dataset disponible en: {dataset_root}")
+
+
+if __name__ == "__main__":
+    main()
