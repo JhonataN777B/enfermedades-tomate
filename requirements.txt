@@ -1,4 +1,4 @@
-# Dependencias requeridas por el notebook actual. Fijar versiones al cerrar el entorno de entrenamiento.
+# Entorno para la primera y segunda entrega. TensorFlow se usa en 02_comparacion_modelos_cnn.ipynb.
 gdown
 numpy
 pandas
@@ -9,3 +9,4 @@ scikit-learn
 scikit-image
 opencv-python
 jupyter
+tensorflow>=2.12,<3.0

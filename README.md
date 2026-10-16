@@ -2,7 +2,7 @@
 
 **Visión por computador · clasificación multiclase · agricultura**
 
-Repositorio reproducible para reconocer seis condiciones foliares del tomate a partir de imágenes. Contiene exploración visual, una línea base clásica basada en HSV y regresión logística, funciones reutilizables y documentación para usar el proyecto sin incorporar el dataset completo a Git.
+Repositorio reproducible para reconocer seis condiciones foliares del tomate a partir de imágenes. Conserva la exploración y línea base HSV + regresión logística de la primera entrega, e incorpora una segunda entrega con augmentation, una CNN propia y transferencia de aprendizaje con MobileNetV2. Incluye funciones reutilizables y documentación para trabajar sin incorporar el dataset completo a Git.
 
 > Alcance académico/investigativo: no sustituye el diagnóstico agronómico ni debe ser la única base para decidir tratamientos.
 
@@ -11,7 +11,7 @@ Repositorio reproducible para reconocer seis condiciones foliares del tomate a p
 ```text
 enfermedades-tomate/
 ├── data/          # procedencia, descarga, contrato de datos y muestras atribuidas
-├── notebooks/     # exploración y experimento inicial en Colab
+├── notebooks/     # primera entrega (EDA/baseline) y segunda (CNN/MobileNetV2)
 ├── src/           # funciones de descarga y extracción de características HSV
 ├── models/        # registro de artefactos; pesos grandes no se versionan
 ├── reports/       # fichas, figuras, métricas y evidencia de IA
@@ -39,19 +39,21 @@ python -m venv .venv
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 python -m src.data --download --destination data/raw
-jupyter notebook notebooks/Proyecto_Profundizacion_3_Enfermedades_en_hojas_de_tomate.ipynb
+jupyter notebook notebooks/02_comparacion_modelos_cnn.ipynb
 ```
 
-El notebook original fue creado en Google Colab. Para ejecutarlo localmente, configura `base_dir` como `data/raw/Dataset` y omite `from google.colab import drive`. Más detalles en [notebooks/README.md](notebooks/README.md).
+El notebook original de la primera entrega fue creado en Google Colab. La segunda entrega detecta `data/raw/Dataset` o la ruta histórica `dataset_tomato/Dataset` automáticamente. MobileNetV2 descarga sus pesos ImageNet al ejecutar el modelo. Consulta [notebooks/README.md](notebooks/README.md) para el protocolo y las diferencias entre entregas.
+
+**Windows:** TensorFlow debe ejecutarse en WSL2 o Google Colab; la instalación nativa de Windows no está disponible en las versiones requeridas por esta entrega. En Linux/WSL2 o Colab, instala las dependencias desde `requirements.txt`.
 
 ## Flujo de trabajo
 
 1. Descargar el dataset y comprobar `train/`, `val/` y `test/`.
-2. Ejecutar la exploración y línea base del notebook.
-3. Mover lógica reutilizable a `src/`, no duplicarla entre notebooks.
-4. Ajustar con `train/`, seleccionar con `val/` y mantener `test/` para la evaluación final.
-5. Exportar métricas y figuras reproducibles a `reports/`.
-6. Versionar modelos en `models/` solo si su tamaño y licencia lo permiten.
+2. Ejecutar la primera entrega para reproducir la exploración y línea base histórica.
+3. Ejecutar `02_comparacion_modelos_cnn.ipynb` para entrenar la CNN y MobileNetV2 con augmentation solo en `train/`.
+4. Usar `val/` para parada temprana y mantener `test/` reservado para la comparación final.
+5. Consultar los resultados históricos y su advertencia de particiones en [reports/second_cut_results.md](reports/second_cut_results.md); reemplazarlos por una nueva ejecución comparable en `test` antes del informe final.
+6. Mover lógica reutilizable a `src/` y versionar modelos solo si tamaño y licencia lo permiten.
 
 ## Dependencias
 
@@ -61,7 +63,8 @@ El notebook original fue creado en Google Colab. Para ejecutarlo localmente, con
 | `opencv-python`, `numpy` | Imágenes, HSV e histogramas. |
 | `pandas`, `scikit-learn` | Resúmenes, regresión logística y métricas. |
 | `matplotlib`, `seaborn` | EDA y visualizaciones. |
-| `scikit-image` | Descriptores LBP del notebook. |
+| `scikit-image` | Descriptores LBP de la primera entrega. |
+| `tensorflow` | CNN propia, augmentation y MobileNetV2 en la segunda entrega. |
 | `jupyter`, `Pillow` | Notebooks y manejo de imágenes. |
 
 Las dependencias se declaran en `requirements.txt`; toda dependencia adicional debe registrarse allí.
