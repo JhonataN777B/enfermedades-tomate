@@ -1,4 +1,4 @@
-# Entorno para la primera y segunda entrega. TensorFlow se usa en 02_comparacion_modelos_cnn.ipynb.
+# Entorno para notebooks, entrenamiento y demo FastAPI.
 gdown
 numpy
 pandas
@@ -10,3 +10,6 @@ scikit-image
 opencv-python
 jupyter
 tensorflow>=2.12,<3.0
+fastapi
+uvicorn
+python-multipart

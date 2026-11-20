@@ -9,6 +9,7 @@ __pycache__/
 /dataset_tomato/
 /dataset_descargado.zip
 
+
 # Configuración local y archivos del sistema
 .env
 .DS_Store

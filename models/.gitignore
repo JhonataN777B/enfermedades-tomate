@@ -5,3 +5,4 @@
 *.onnx
 *.h5
 *.keras
+!Tomate_DeepMLP_HSV.keras
