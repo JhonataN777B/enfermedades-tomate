@@ -1,5 +1,9 @@
 # Flujo del proyecto
 
+![Diagrama visual del flujo del proyecto](flujo_proyecto.svg)
+
+La imagen muestra las etapas, los modelos comparados, el uso separado de `train`, `val` y `test`, y la ruta de despliegue del modelo final. Mermaid se conserva debajo como fuente editable.
+
 ```mermaid
 flowchart TD
     A[Descargar dataset CC BY 4.0] --> B[Verificar train / val / test]

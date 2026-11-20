@@ -57,6 +57,10 @@ La API carga `models/Tomate_DeepMLP_HSV.keras`. Para notebooks en Windows, usa W
 
 ## Flujo metodológico
 
+![Diagrama visual del flujo del proyecto](docs/flujo_proyecto.svg)
+
+La versión visual resume las cinco fases del proyecto: datos, extracción HSV, comparación de modelos, evaluación y despliegue. El archivo SVG se puede abrir directamente en el navegador; el código Mermaid editable y las reglas de evaluación están en [`docs/flujo_proyecto.md`](docs/flujo_proyecto.md).
+
 1. Descargar y validar `train`, `val` y `test`.
 2. Explorar balance, imágenes, iluminación y textura.
 3. Convertir BGR a HSV y extraer 512 bins normalizados.
@@ -64,7 +68,7 @@ La API carga `models/Tomate_DeepMLP_HSV.keras`. Para notebooks en Windows, usa W
 5. Seleccionar con `val` y evaluar una sola vez sobre `test`.
 6. Documentar métricas, errores, estrés de iluminación y límites de uso.
 
-El diagrama completo está en [`docs/flujo_proyecto.md`](docs/flujo_proyecto.md).
+El diagrama editable está en [`docs/flujo_proyecto.md`](docs/flujo_proyecto.md).
 
 ## Documentación final
 

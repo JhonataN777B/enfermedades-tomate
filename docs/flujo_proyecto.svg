@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo del proyecto de clasificación de enfermedades en hojas de tomate</title>
+  <desc id="desc">Diagrama visual de cinco fases: datos, características HSV, comparación de modelos, evaluación y despliegue.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fafc"/>
+      <stop offset="1" stop-color="#edf3f8"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#047857"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c2410c"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6d28d9"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#17324d" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-white" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#ffffff"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #102a43; }
+      .subtitle { font: 400 17px Arial, sans-serif; fill: #526579; }
+      .phase { font: 700 19px Arial, sans-serif; fill: #ffffff; }
+      .phase-num { font: 700 16px Arial, sans-serif; fill: #ffffff; }
+      .card-title { font: 700 17px Arial, sans-serif; fill: #102a43; }
+      .body { font: 400 15px Arial, sans-serif; fill: #334e68; }
+      .small { font: 400 13px Arial, sans-serif; fill: #627d98; }
+      .white { fill: #ffffff; }
+      .line { fill: none; stroke: #64748b; stroke-width: 3; marker-end: url(#arrow); }
+      .dashed { fill: none; stroke: #94a3b8; stroke-width: 2.5; stroke-dasharray: 9 8; marker-end: url(#arrow); }
+      .card { fill: #ffffff; stroke: #d9e2ec; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1040" fill="url(#bg)"/>
+  <text x="80" y="72" class="title">Flujo del proyecto · Enfermedades en hojas de tomate</text>
+  <text x="80" y="105" class="subtitle">De los datos de PlantVillage al modelo Deep MLP HSV y la demostración web</text>
+
+  <!-- phase 1 -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="150" width="280" height="610" rx="22" fill="#e8f1ff"/>
+    <rect x="80" y="150" width="280" height="64" rx="22" fill="url(#blue)"/>
+    <rect x="80" y="192" width="280" height="22" fill="url(#blue)"/>
+  </g>
+  <circle cx="116" cy="182" r="20" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="116" y="188" text-anchor="middle" class="phase-num">1</text>
+  <text x="150" y="188" class="phase">Datos y particiones</text>
+  <rect x="108" y="245" width="224" height="112" rx="14" class="card"/>
+  <text x="130" y="276" class="card-title">Dataset atribuido</text>
+  <text x="130" y="302" class="body">Mendeley Data · CC BY 4.0</text>
+  <text x="130" y="328" class="body">6 clases · 6.557 imágenes</text>
+  <rect x="108" y="386" width="224" height="150" rx="14" class="card"/>
+  <text x="130" y="417" class="card-title">Particiones</text>
+  <text x="130" y="446" class="body">train · 70% · ajuste</text>
+  <text x="130" y="474" class="body">val · 15% · selección</text>
+  <text x="130" y="502" class="body">test · 15% · evaluación final</text>
+  <rect x="108" y="565" width="224" height="154" rx="14" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="130" y="598" class="card-title">Control de datos</text>
+  <text x="130" y="626" class="body">Descarga reproducible</text>
+  <text x="130" y="652" class="body">Validación de estructura</text>
+  <text x="130" y="678" class="body">Sin mezclar test en desarrollo</text>
+
+  <!-- phase 2 -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="150" width="280" height="610" rx="22" fill="#e7f8f1"/>
+    <rect x="410" y="150" width="280" height="64" rx="22" fill="url(#green)"/>
+    <rect x="410" y="192" width="280" height="22" fill="url(#green)"/>
+  </g>
+  <circle cx="446" cy="182" r="20" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="446" y="188" text-anchor="middle" class="phase-num">2</text>
+  <text x="480" y="188" class="phase">Características HSV</text>
+  <rect x="438" y="245" width="224" height="112" rx="14" class="card"/>
+  <text x="460" y="276" class="card-title">Preparación</text>
+  <text x="460" y="303" class="body">BGR → HSV</text>
+  <text x="460" y="329" class="body">Revisión de color e iluminación</text>
+  <rect x="438" y="386" width="224" height="150" rx="14" class="card"/>
+  <text x="460" y="417" class="card-title">Descriptor</text>
+  <text x="460" y="446" class="body">Histograma 3D normalizado</text>
+  <text x="460" y="474" class="body">8 × 8 × 8 bins</text>
+  <text x="460" y="502" class="body">512 características por imagen</text>
+  <rect x="438" y="565" width="224" height="154" rx="14" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="460" y="598" class="card-title">Exploración</text>
+  <text x="460" y="626" class="body">Galerías y balance por clase</text>
+  <text x="460" y="652" class="body">LBP como análisis de textura</text>
+  <text x="460" y="678" class="body">Fondos y variación de luz</text>
+
+  <!-- phase 3 -->
+  <g filter="url(#shadow)">
+    <rect x="740" y="150" width="380" height="610" rx="22" fill="#fff2e8"/>
+    <rect x="740" y="150" width="380" height="64" rx="22" fill="url(#orange)"/>
+    <rect x="740" y="192" width="380" height="22" fill="url(#orange)"/>
+  </g>
+  <circle cx="776" cy="182" r="20" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="776" y="188" text-anchor="middle" class="phase-num">3</text>
+  <text x="810" y="188" class="phase">Comparación de modelos</text>
+  <rect x="768" y="245" width="324" height="82" rx="14" class="card"/>
+  <text x="790" y="276" class="card-title">Línea base</text>
+  <text x="790" y="303" class="body">Regresión logística sobre HSV</text>
+  <rect x="768" y="350" width="324" height="82" rx="14" class="card"/>
+  <text x="790" y="381" class="card-title">MLP simple</text>
+  <text x="790" y="408" class="body">Red densa de referencia</text>
+  <rect x="768" y="455" width="324" height="104" rx="14" fill="#ffedd5" stroke="#fdba74"/>
+  <text x="790" y="487" class="card-title">Deep MLP HSV · ganador</text>
+  <text x="790" y="514" class="body">512 → 256 → 128 → 6</text>
+  <text x="790" y="540" class="body">BatchNorm + Dropout + Softmax</text>
+  <rect x="768" y="582" width="324" height="112" rx="14" class="card"/>
+  <text x="790" y="613" class="card-title">Comparativas visuales</text>
+  <text x="790" y="640" class="body">CNN propia y MobileNetV2</text>
+  <text x="790" y="667" class="body">Grad-CAM como apoyo interpretativo</text>
+
+  <!-- phase 4 -->
+  <g filter="url(#shadow)">
+    <rect x="1170" y="150" width="350" height="610" rx="22" fill="#f1eafe"/>
+    <rect x="1170" y="150" width="350" height="64" rx="22" fill="url(#purple)"/>
+    <rect x="1170" y="192" width="350" height="22" fill="url(#purple)"/>
+  </g>
+  <circle cx="1206" cy="182" r="20" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="1206" y="188" text-anchor="middle" class="phase-num">4</text>
+  <text x="1240" y="188" class="phase">Evaluación y evidencia</text>
+  <rect x="1198" y="245" width="294" height="105" rx="14" class="card"/>
+  <text x="1220" y="276" class="card-title">Selección</text>
+  <text x="1220" y="303" class="body">Valida arquitectura y métricas</text>
+  <text x="1220" y="329" class="body">Fija el modelo antes del test</text>
+  <rect x="1198" y="375" width="294" height="105" rx="14" fill="#ede9fe" stroke="#c4b5fd"/>
+  <text x="1220" y="406" class="card-title">Test reservado</text>
+  <text x="1220" y="433" class="body">Accuracy · F1 macro</text>
+  <text x="1220" y="459" class="body">Matriz y reporte por clase</text>
+  <rect x="1198" y="505" width="294" height="105" rx="14" class="card"/>
+  <text x="1220" y="536" class="card-title">Robustez</text>
+  <text x="1220" y="563" class="body">Estrés del canal V de HSV</text>
+  <text x="1220" y="589" class="body">Límites y sesgos documentados</text>
+  <rect x="1198" y="635" width="294" height="84" rx="14" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="1220" y="667" class="card-title">Decisión</text>
+  <text x="1220" y="694" class="body">Modelo listo para demo académica</text>
+
+  <!-- connectors -->
+  <path d="M360 455 H410" class="line"/>
+  <path d="M690 455 H740" class="line"/>
+  <path d="M1120 455 H1170" class="line"/>
+  <path d="M1345 760 V845" class="line"/>
+  <path d="M930 760 V845" class="dashed"/>
+  <path d="M930 845 H1345" class="dashed"/>
+
+  <!-- deployment band -->
+  <g filter="url(#shadow)">
+    <rect x="240" y="850" width="1120" height="132" rx="24" fill="#102a43"/>
+  </g>
+  <text x="280" y="888" class="phase">5 · Despliegue académico</text>
+  <text x="280" y="922" class="white" style="font: 400 16px Arial, sans-serif;">Modelo Keras</text>
+  <text x="280" y="949" class="small" style="fill:#b6c7d8;">models/Tomate_DeepMLP_HSV.keras</text>
+  <path d="M560 920 H685" stroke="#ffffff" stroke-width="3" fill="none" marker-end="url(#arrow-white)"/>
+  <text x="600" y="900" text-anchor="middle" class="small" style="fill:#b6c7d8;">inferencia</text>
+  <text x="735" y="922" class="white" style="font: 400 16px Arial, sans-serif;">API FastAPI</text>
+  <text x="735" y="949" class="small" style="fill:#b6c7d8;">app.py · /predict</text>
+  <path d="M925 920 H1050" stroke="#ffffff" stroke-width="3" fill="none" marker-end="url(#arrow-white)"/>
+  <text x="987" y="900" text-anchor="middle" class="small" style="fill:#b6c7d8;">resultado</text>
+  <text x="1100" y="922" class="white" style="font: 400 16px Arial, sans-serif;">Demo web</text>
+  <text x="1100" y="949" class="small" style="fill:#b6c7d8;">predicción + HSV + mapa visual</text>
+
+  <text x="80" y="1015" class="small">Regla metodológica: train ajusta · val selecciona · test informa una única evaluación final</text>
+</svg>
