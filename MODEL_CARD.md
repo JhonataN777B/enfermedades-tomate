@@ -3,7 +3,7 @@
 ## 1. Detalles del modelo
 
 - **Nombre:** Tomate Deep MLP (HSV Descriptor)
-- **Equipo:** David Garzón, Jhonatan Molina y Kevin Canva
+- **Equipo:** David Garzón, Jhonatan Molina y Kevin Comba
 - **Fecha:** noviembre de 2026
 - **Tipo:** red neuronal totalmente conectada (Deep MLP) para clasificación multiclase a partir de histogramas HSV.
 - **Licencia de referencia:** CC BY 4.0 para el dataset; uso académico y de investigación.
